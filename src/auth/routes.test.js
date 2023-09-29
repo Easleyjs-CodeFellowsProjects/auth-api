@@ -28,10 +28,8 @@ describe('Auth Route Tests', () => {
         const { user } = response.body;
         expect(user).toBeTruthy()
         expect(user.token).toBeTruthy()
-        //console.log(user);
 
         const adminUser = await users.findOne({ where: { "username": signupUser.username }});
-        //console.log(adminUser);
         expect(adminUser).toBeTruthy()
         expect(adminUser.username).toBe(signupUser.username);
     })
