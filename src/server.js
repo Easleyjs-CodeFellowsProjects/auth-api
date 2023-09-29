@@ -8,7 +8,7 @@ const logger = require('./middleware/logger.js');
 
 const authRoutes = require('./auth/routes.js'); // Auth routes (signin, signup)
 const v1Routes = require('./routes/v1.js'); // Basic API Routes with no auth middleware
-// v2Routes // API Routes with Auth and ACL
+const v2Routes = require('./routes/v2') // API Routes with Auth and ACL
 
 const app = express();
 
@@ -22,6 +22,7 @@ app.get("/", (req, res, next) => {
 
 app.use(authRoutes);
 app.use('/api/v1', v1Routes);
+app.use('/api/v2', v2Routes);
 
 app.use('/*', notFoundHandler);
 app.use(errorHandler);
