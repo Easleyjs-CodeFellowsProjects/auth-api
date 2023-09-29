@@ -3,20 +3,15 @@
 const supertest = require('supertest');
 const server = require('./server')
 const { sequelize, food } = require('./models/index');
-const foodModel = require('./models/food/model');
 const request = supertest(server.app);
-
 
 beforeEach(async () => {
     await sequelize.sync();
 })
 
-
-
 afterEach(async () => {
     await sequelize.drop();
 })
-
 
 // Basic server tests
 xdescribe('It should see if server is accessible',() => {
@@ -46,8 +41,23 @@ xdescribe('It returns on bad/unavailable methods on routes', () => {
     })
 })
 
+// Auth Route Tests
+describe('Auth Route Tests', () => {
+    // POST /signup creates a new user and sends an object with the user and the token to the client.
+    test('Creates a new user and returns their new token', () => {
 
+    })
 
+    // POST /signin with basic authentication headers logs in a user and sends an object with the user and the token to the client.
+    test('A user can sign in with their credentials', () => {
+
+    })
+
+    // POST /signin with bearer authentication headers logs in a user and sends an object with the user and the token to the client.
+    test('A user can sign in with their a token', () => {
+
+    })
+})
 
 // v1 API Route Tests
 describe('v1 API CRUD Tests', () => {
@@ -154,3 +164,4 @@ describe('v1 API CRUD Tests', () => {
         expect(await food.model.findOne({ where: { id: newFood.id }})).toBeFalsy()
     })
 })
+
