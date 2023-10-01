@@ -7,7 +7,7 @@ API Server with CRUD db routes secured by bearer auth and RBAC ACLs
 npm i express cors dotenv jest supertest sequelize pg sqlite3 eslint
 
 ## Render.com URL:
-
+https://auth-api-rkxj.onrender.com/
 
 ## Assignment instructions
 
